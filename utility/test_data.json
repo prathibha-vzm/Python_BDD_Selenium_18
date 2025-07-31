@@ -1,0 +1,11 @@
+{
+  "URL"            :{
+    "login_url"    : "https://v2.zenclass.in/login",
+    "dashboard_url": "https://v2.zenclass.in/dashboard"
+  },
+  "Error_Message"  : {
+    "email_error"  : "Invalid email!",
+    "missing_pwd"  : "Password required!",
+    "missing_email": "Email required!"
+  }
+}

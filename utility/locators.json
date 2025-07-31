@@ -1,0 +1,10 @@
+{
+  "locators": {
+    "username_input": ["XPATH","//input[@placeholder='Enter your mail']"],
+    "password_input": ["XPATH","//input[@type='password']"],
+    "remember_me": ["XPATH","//input[@aria-label='Checkbox demo']"],
+    "error_message": ["XPATH","//p[@id=':r1:-helper-text']"],
+    "login_btn": ["XPATH","//button[@type='submit']"],
+    "pop_up": ["XPATH","//button[@class='custom-close-button']"]
+  }
+}

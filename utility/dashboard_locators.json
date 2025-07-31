@@ -1,0 +1,7 @@
+{
+  "locators": {
+    "arrow_element": ["XPATH","//img[@class='profile-click-icon']"],
+    "logout_element": ["XPATH","//div[@class='user-avatar-menu'][3]"],
+    "name_element": ["XPATH","//p[@class='avatar-profile-name d-flex fs-normal m-0']"]
+  }
+}
