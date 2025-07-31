@@ -8,8 +8,10 @@
  ### POM (Page Object Model)
 ## BDD (Behavior-Driven Development):
 * Implemented using pytest-bdd. Test scenarios are written in .feature files using Given-When-Then syntax for better readability and collaboration.
-## Wait - Used Explicit wait to handle elements visibility.
-## Exception handling - Handled the TimeoutError for uniterrupted test runs.
+## Wait 
+* Used Explicit wait to handle elements visibility.
+## Exception handling 
+* Handled the TimeoutError for uniterrupted test runs.
 ## OOPS concept
 ## Project Structure:- POM
 1. Pages - The Login page elements are located here and values are passed from test logic.
