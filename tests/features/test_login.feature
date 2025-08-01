@@ -4,7 +4,8 @@ Feature:
         Given The user is on the login page
         When  The user enters <username> and <password> and login
         And   Click on login button
-        Then  The user gets <result>
+        Then  The valid user gets <result> and land on Dashboard
+        But  The Invalid user gets <result> and login error
 
         Examples:
           | username                       | password   | result                      |
