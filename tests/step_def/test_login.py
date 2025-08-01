@@ -31,8 +31,8 @@ def click_functions(driver,locator_utility):
     login_object=LoginPage(driver,locator_utility)
     login_object.click_login()
 
-# Step to validate whether the user lands on the dashboard or receives an expected error message
-@then(parsers.cfparse('The user gets {result}'))
+# Step to validate whether the user lands on the dashboard
+@then(parsers.cfparse('The valid user gets {result} and land on Dashboard'))
 def user_landed(driver, result, locator_utility,dashboard_utility,url_utility):
     dashboard_object=Dashboard(driver,dashboard_utility)
     login = LoginPage(driver, locator_utility)
@@ -49,9 +49,17 @@ def user_landed(driver, result, locator_utility,dashboard_utility,url_utility):
         assert actual_url == expected_login_url
         print("Successfully Logged out")
     else:
+        print("Invalid User")
+
+# Step to validate whether the invalid user is not landed on dashboard and received the error message
+@then(parsers.cfparse('The Invalid user gets {result} and login error'))
+def invalid_user(driver,result,locator_utility):
+    login = LoginPage(driver, locator_utility)
+    if result != "Dashboard":
         error_text = login.error_messages()
         assert result == error_text, f"Expected error {result},Actual Error {error_text}"
-
+    else:
+        print("No error message found")
 
 
 
