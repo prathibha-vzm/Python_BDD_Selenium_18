@@ -39,8 +39,10 @@ def user_landed(driver, result, locator_utility,dashboard_utility,url_utility):
     if result=="Dashboard":
         pop_by, pop_value = locator_utility["pop_up"]
         pop_element = WebDriverWait(driver,10).until(
-                    expected_conditions.visibility_of_element_located((getattr(By, pop_by.upper()), pop_value)))
+                    expected_conditions.visibility_of_element_located(
+                        (getattr(By, pop_by.upper()), pop_value)))
         pop_element.click()
+        driver.save_screenshot(f"screenshots/Dashboard.png")
         dashboard_object.dashboard_functionality()
         time.sleep(5)
         print("Logged in to dashboard")
@@ -56,6 +58,7 @@ def user_landed(driver, result, locator_utility,dashboard_utility,url_utility):
 def invalid_user(driver,result,locator_utility):
     login = LoginPage(driver, locator_utility)
     if result != "Dashboard":
+        driver.save_screenshot(f"screenshots/Invalid_login.png")
         error_text = login.error_messages()
         assert result == error_text, f"Expected error {result},Actual Error {error_text}"
     else:
