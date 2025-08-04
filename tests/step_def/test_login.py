@@ -1,5 +1,4 @@
 # Importing needed packages
-import time
 import pytest
 from pytest_bdd import scenarios, given, when, then, parsers
 from selenium.webdriver.common.by import By
@@ -12,12 +11,10 @@ from Task_18.pages.login_page import LoginPage
 # Linking the feature file to the step definitions for test execution
 scenarios("test_login.feature")
 
-# Method to create and return an instance of the LoginPage
 def login(driver,locator_utility):
     logins=LoginPage(driver,locator_utility)
     return logins
-    
-# Fixture to provide a reusable LoginPage object for tests
+
 @pytest.fixture
 def login_object(driver, locator_utility):
     return login(driver,locator_utility)
@@ -51,9 +48,11 @@ def user_landed(driver,login_object, result, locator_utility,dashboard_utility,u
                         (getattr(By, pop_by.upper()), pop_value)))
         pop_element.click()
         driver.save_screenshot(f"screenshots/Dashboard.png")
-        dashboard_object.dashboard_functionality()
-        time.sleep(5)
+        dashboard_object.read_name_element()
+        dashboard_object.click_arrow_element()
+        dashboard_object.click_logout()
         print("Logged in to dashboard")
+        login_object.read_login_element()
         actual_url = login_object.get_current_url()
         expected_login_url = url_utility["login_url"]
         assert actual_url == expected_login_url
