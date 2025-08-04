@@ -75,7 +75,7 @@ class LoginPage(BasePage):
      def get_current_url(self):
          actual_url=self.driver.current_url
          return actual_url
-
+     # This method is to read the element in login page 
      def read_login_element(self):
          login_by, login_value = self.locators["login_element"]
          login_elem =self.wait.until(
@@ -83,4 +83,5 @@ class LoginPage(BasePage):
                  (getattr(By,login_by.upper()),login_value)
              )
          )
+
 
