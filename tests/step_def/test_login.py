@@ -10,11 +10,12 @@ from Task_18.pages.login_page import LoginPage
 
 # Linking the feature file to the step definitions for test execution
 scenarios("test_login.feature")
-
+# This function creates and returns an instance of the LoginPage class
 def login(driver,locator_utility):
     logins=LoginPage(driver,locator_utility)
     return logins
-
+    
+# Fixture for instance method
 @pytest.fixture
 def login_object(driver, locator_utility):
     return login(driver,locator_utility)
@@ -69,6 +70,7 @@ def invalid_user(driver,login_object,result):
         assert result == error_text, f"Expected error {result},Actual Error {error_text}"
     else:
         print("No error message found")
+
 
 
 
