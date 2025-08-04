@@ -6,8 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Task_18.pages.base_page import BasePage # Importing Base page to use as parent class
 
 # This page is for locating login page elements to enter text or to click on that element
-# Here I hardcoded locators by sending locators from json file and accessing them by calling the file reading method
-
+# Locators are retrieved from a JSON file by reading it through a file-reading method, instead of hardcoding them directly in the script
 class LoginPage(BasePage):
      # Defining constructor to initialize driver and locator utility like this
      def __init__(self,driver,locator_utility):
@@ -76,4 +75,12 @@ class LoginPage(BasePage):
      def get_current_url(self):
          actual_url=self.driver.current_url
          return actual_url
+
+     def read_login_element(self):
+         login_by, login_value = self.locators["login_element"]
+         login_elem =self.wait.until(
+             expected_conditions.visibility_of_element_located(
+                 (getattr(By,login_by.upper()),login_value)
+             )
+         )
 
